@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <meta name="description" content="This is a Birthday wishing website created by AKIB. You'll get a automatically birthday wish through Email after fill uping the form ">
+    <title>Birthday Surprise by Akib</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
+        body {
+            background-image: linear-gradient(to right, #7141a7, #67adc5) !important;
+        }
+        
+        .cont {
+            height: 100vh;
+        }
+        
+        .register .nav-tabs .nav-link:hover {
+            border: none;
+        }
+        
+        .form-new {
+            margin-right: 22%;
+            margin-left: 20%;
+        }
+        
+        .register-heading {
+            padding: 11px;
+            text-align: center;
+            color: #e9ecef;
+        }
+        
+        .register-heading h1 {
+            margin-left: 21%;
+            margin-bottom: 10%;
+            color: #e9ecef;
+        }
+        
+        .register {
+            border-radius: 30px;
+            background: -webkit-linear-gradient(left, #67b0c6, #7147a9);
+            margin-top: 3%;
+            padding: 3%;
+            box-shadow: -1px 0px 5px 3px #070000d4;
+        }
+        
+        .btnSubmit {
+            outline: none;
+            width: 50%;
+            border-radius: 1rem;
+            padding: 1.5%;
+            color: #fff;
+            background-color: black;
+            border: none;
+            cursor: pointer;
+            margin-right: 6%;
+            color: rgb(246, 246, 252);
+            margin-top: 4%;
+        }
+        
+        .btnSubmit:hover {
+            box-shadow: -1px 0px 5px 3px #e7dfdf;
+            background-color: black;
+        }
+        
+        .img {
+            max-width: fit-content;
+            margin: auto;
+        }
+        
+        .img img {
+            height: 100px;
+        }
+        
+        .lText {
+            font-family: 'Akaya Telivigala', cursive;
+            font-size: 25px;
+            text-align: center;
+            padding: 2rem;
+            color: #f6f7eec5;
+        }
+        
+        .fText {
+            color: #f6f7ee;
+            font-family: 'Akaya Telivigala', cursive;
+            font: 25px;
+        }
+        
+        span {
+            color: black;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        
+        @media only screen and (max-width: 1000px) and (min-width: 320px) {
+            .form-new {
+                margin-right: 2%;
+                margin-left: 2%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="cont">
+        <div class="container register">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tab-pane fade show active text-align form-new" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <h3 class="register-heading">Fill This for upcoming BIRTHDAY SURPRISE!!</h3>
+                        <div class="row register-form">
+                            <div class="col-md-12">
+                                <form method="post" autocomplete="off" name="google-sheet">
+                                    <div class="form-group">
+                                        <input type="text" name="name" class="form-control" placeholder="Your Nick Name " value="" required="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="email" class="form-control" placeholder="Your Email " value="" required="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <p class="fText"> Date of Birth :</p>
+                                        <input type="date" name="date of birth" class="form-control" placeholder="Your Date of birth " value="" required="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" name="submit" class="btnSubmit btn-block" value="Submit" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="img">
+                <img src="img.png" alt="">
+            </div>
+        </div>
+        <p class="lText">This is a website created by AKIB. First you have to fill up the form. <br> You'll get a automatically birthday wish through Email. <br> Thanks <br> <br><span>Made by AKIB</span>
+        </p>
+
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxKvVjN3pl08p_iXyyIwX2frUruP_w4miex_qBLEFvkKDHjC7Q/exec'
+        const form = document.forms['google-sheet']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => alert("Thanks For Submitting "))
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+
+</html>
