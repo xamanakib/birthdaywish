@@ -95,6 +95,28 @@
             font-weight: bold;
         }
         
+        .button {
+            width: fit-content;
+            margin: auto;
+        }
+        
+        .btn {
+            font-size: 11px;
+            outline: none;
+            background-color: black;
+            color: white;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 900;
+            width: fit-content;
+            cursor: pointer;
+            animation: all .3s ease-in;
+        }
+        
+        .btn:hover {
+            transform: scale(.95);
+            background-color: rgb(22, 20, 20);
+        }
+        
         @media only screen and (max-width: 1000px) and (min-width: 320px) {
             .form-new {
                 margin-right: 2%;
@@ -105,7 +127,7 @@
 
 </head>
 
-<body>
+<body oncontextmenu="return false">
     <div class="cont">
         <div class="container register">
             <div class="row">
@@ -138,12 +160,16 @@
                 <img src="img.png" alt="">
             </div>
         </div>
-        <p class="lText">This is a website created by AKIB. First you have to fill up the form. <br> You'll get a automatically birthday wish through Email. <br> Thanks <br> <br><span>Made by AKIB</span>
+        <p class="lText">This is a website created by AKIB. First you have to fill up the form. <br> You'll get a automatically birthday wish through Email. <br> Thanks <br><span>Made by AKIB</span>
         </p>
+        <div class="button">
+            <button id="bgnBtn" onclick="promptMe()" class="btn">Source Code</button>
+        </div>
 
     </div>
 
     <script>
+        //form to sheet
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxKvVjN3pl08p_iXyyIwX2frUruP_w4miex_qBLEFvkKDHjC7Q/exec'
         const form = document.forms['google-sheet']
 
@@ -156,6 +182,42 @@
                 .then(response => alert("Thanks For Submitting "))
                 .catch(error => console.error('Error!', error.message))
         })
+
+        // For pin system
+        function promptMe() {
+            let code = prompt("Please Enter Your Pin");
+
+            const pin = 54672;
+            if (code == pin) {
+                document.body.oncontextmenu = "return true";
+
+
+            } else {
+                // location.reload();
+                alert('Your pin is incorrect')
+
+            }
+        }
+
+
+        //locking the keys
+        document.onkeydown = function(e) {
+            if (event.keyCode == 123) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false;
+            }
+        }
     </script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
