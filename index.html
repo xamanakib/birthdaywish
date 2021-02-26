@@ -117,6 +117,12 @@
             background-color: rgb(22, 20, 20);
         }
         
+        #pp {
+            color: rgb(82, 78, 78);
+            text-decoration: underline;
+            font-size: 15px;
+        }
+        
         @media only screen and (max-width: 1000px) and (min-width: 320px) {
             .form-new {
                 margin-right: 2%;
@@ -138,17 +144,17 @@
                             <div class="col-md-12">
                                 <form method="post" autocomplete="off" name="google-sheet">
                                     <div class="form-group">
-                                        <input type="text" name="name" class="form-control" placeholder="Your Nick Name " value="" required="" />
+                                        <input type="text" name="name" id="Inpp" class="form-control" placeholder="Your Nick Name " value="" required="" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="email" class="form-control" placeholder="Your Email " value="" required="" />
+                                        <input type="text" name="email" id="Inppp" class="form-control" placeholder="Your Email " value="" required="" />
                                     </div>
                                     <div class="form-group">
                                         <p class="fText"> Date of Birth :(dd-mm-yyyy) </p>
-                                        <input type="date" name="date of birth" class="form-control" placeholder="Your Date of birth " value="" required="" />
+                                        <input type="date" name="date of birth" id="Inp" class="form-control" placeholder="Your Date of birth " value="" required="" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="submit" name="submit" class="btnSubmit btn-block" value="Submit" />
+                                        <input type="submit" name="submit" id="btn" class="btnSubmit btn-block" value="Submit" />
                                     </div>
                                 </form>
                             </div>
@@ -164,6 +170,7 @@
         </p>
         <div class="button">
             <button id="bgnBtn" onclick="promptMe()" class="btn">Source Code</button>
+            <span><a href="https://www.privacypolicygenerator.info/live.php?token=Jtt4RkomnnqR6ir4aYaQpNXxwx2nNBah" id="pp" target="blank">Privacy Policy</a></span>
         </div>
 
     </div>
@@ -181,7 +188,18 @@
                 })
                 .then(response => alert("Thanks For Submitting "))
                 .catch(error => console.error('Error!', error.message))
+
+            let inp = document.getElementById("Inp");
+            let inpp = document.getElementById("Inpp");
+            let inppp = document.getElementById("Inppp");
+            inp.value = null;
+            inpp.value = null;
+            inppp.value = null;
+            let subText = document.getElementById("btn");
+            subText.value = "Successfully Submitted ..."
         })
+
+
 
         // For pin system
         function promptMe() {
