@@ -123,6 +123,32 @@
             font-size: 15px;
         }
         
+        #hide {
+            display: none;
+        }
+        
+        #hide p {
+            padding: 0px;
+            color: #000000;
+            border: 2px solid lavender;
+            width: fit-content;
+            margin: auto;
+            border-radius: 8px;
+            outline: none;
+            animation: sub .5s ease-in;
+        }
+        
+        @keyframes sub {
+            0% {
+                opacity: .6;
+                transform: scale(.6);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
         @media only screen and (max-width: 1000px) and (min-width: 320px) {
             .form-new {
                 margin-right: 2%;
@@ -162,6 +188,9 @@
                     </div>
                 </div>
             </div>
+            <div id="hide">
+                <p class="lText">Submitted Successfully..You'll get a auto wish on your birthday</p>
+            </div>
             <div class="img">
                 <img src="img.png" alt="">
             </div>
@@ -192,11 +221,16 @@
             let inp = document.getElementById("Inp");
             let inpp = document.getElementById("Inpp");
             let inppp = document.getElementById("Inppp");
+            let hide = document.getElementById("hide");
+
             inp.value = null;
             inpp.value = null;
             inppp.value = null;
             let subText = document.getElementById("btn");
-            subText.value = "Successfully Submitted ..."
+            subText.value = "Submitted...";
+            hide.style.display = 'block';
+
+
         })
 
 
